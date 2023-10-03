@@ -1,22 +1,24 @@
 import React, { useContext } from 'react';
 import NavBar from '../../Pages/Shared/NavBar/NavBar';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContex } from '../../Provides/AuthProvider/AuthProvider';
 
 const Login = () => {
 
     const { loginUser } = useContext(AuthContex);
+    const location = useLocation();
+    const navigate = useNavigate();
 
     const handelLogin = (e) => {
         e.preventDefault();
         const email = e.target.email.value;
         const password = e.target.password.value;
-        
+
         loginUser(email, password)
-        .then(result =>{
-            console.log(result.user);
-        })
-        .catch(console.error())
+            .then(result => {
+                navigate(location?.state ? location.state : '/');
+            })
+            .catch(console.error())
     }
 
     return (
