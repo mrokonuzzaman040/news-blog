@@ -1,11 +1,16 @@
 import React, { useContext } from 'react';
 import NavBar from '../../Pages/Shared/NavBar/NavBar';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContex } from '../../Provides/AuthProvider/AuthProvider';
+
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Register = () => {
 
     const { createUser } = useContext(AuthContex);
+    const lcoate = useLocation();
+    const navogate = useNavigate()
 
     const handelRegister = (e) => {
         e.preventDefault();
@@ -18,10 +23,11 @@ const Register = () => {
 
         createUser(email, password)
             .then(result => {
-                console.log(result.user);
+                toast.success('Register Success');
+                navogate(lcoate?.state ? lcoate.state : '/');
             })
             .catch(error => {
-                console.log(error);
+                toast.error(error.message);
             })
     }
 
@@ -63,6 +69,7 @@ const Register = () => {
 
                 <p className='text-center mt-4 text-sm'>Allready have an account? <Link to={'/login'} className='text-red-400'>Login</Link></p>
             </form>
+            <ToastContainer />
         </div>
     );
 };

@@ -3,6 +3,9 @@ import NavBar from '../../Pages/Shared/NavBar/NavBar';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContex } from '../../Provides/AuthProvider/AuthProvider';
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 const Login = () => {
 
     const { loginUser } = useContext(AuthContex);
@@ -17,6 +20,7 @@ const Login = () => {
         loginUser(email, password)
             .then(result => {
                 navigate(location?.state ? location.state : '/');
+                toast.success('Login Success');
             })
             .catch(console.error())
     }
@@ -47,7 +51,9 @@ const Login = () => {
 
                 <p className='text-center mt-4 text-sm'>Don't have an Account? <Link to={'/register'} className='text-red-400'>Register</Link></p>
             </form>
+            <ToastContainer />
         </div>
+
     );
 };
 
