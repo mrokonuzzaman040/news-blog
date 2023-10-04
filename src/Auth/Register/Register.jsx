@@ -8,7 +8,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const Register = () => {
 
-    const { createUser } = useContext(AuthContex);
+    const { createUser, upDateProfile, user } = useContext(AuthContex);
     const lcoate = useLocation();
     const navogate = useNavigate()
 
@@ -21,14 +21,23 @@ const Register = () => {
         const email = form.get('email');
         const password = form.get('password');
 
+
         createUser(email, password)
             .then(result => {
-                toast.success('Register Success');
+                upDateProfile(name, photo)
+                    .then(result => {
+                        
+                    })
+                    .catch(error => {
+                        
+                    })
                 navogate(lcoate?.state ? lcoate.state : '/');
             })
             .catch(error => {
                 toast.error(error.message);
             })
+
+
     }
 
     return (
