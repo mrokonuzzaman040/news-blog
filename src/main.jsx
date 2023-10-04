@@ -13,6 +13,7 @@ import Register from './Auth/Register/Register';
 import AuthProvider from './Provides/AuthProvider/AuthProvider';
 import NewsDetails from './Pages/NewsDetails/NewsDetails';
 import PrivetRout from './Routes/PrivetRout/PrivetRout';
+import Profile from './Routes/Profile/Profile';
 
 const router = createBrowserRouter([
   {
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
       {
         path: '/register',
         element: <Register></Register>,
+      },
+      {
+        path: '/profile',
+        element: <PrivetRout><Profile></Profile></PrivetRout>,
       },
     ]
   },

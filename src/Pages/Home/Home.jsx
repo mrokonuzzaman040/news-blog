@@ -6,6 +6,8 @@ import RightSiteNav from '../Shared/RightSiteNav/RightSiteNav';
 import BreakingNews from './BreakingNews';
 import { useLoaderData } from 'react-router-dom';
 import NewsCard from './NewsCard/NewsCard';
+import Advatize from '../Shared/Advatize/Advatize';
+import LeftDown from '../Shared/LeftDown/LeftDown';
 
 const Home = () => {
 
@@ -20,6 +22,7 @@ const Home = () => {
 
                 <div className="">
                     <LeftSideNav></LeftSideNav>
+                    <LeftDown></LeftDown>
                 </div>
                 {/* News container */}
                 <div className="md:col-span-2">
@@ -30,6 +33,7 @@ const Home = () => {
 
                 <div className="">
                     <RightSiteNav></RightSiteNav>
+                    <Advatize></Advatize>
                 </div>
             </div>
         </div>

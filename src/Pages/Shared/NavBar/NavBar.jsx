@@ -5,15 +5,15 @@ import { AuthContex } from '../../../Provides/AuthProvider/AuthProvider';
 
 const NavBar = () => {
 
-    const { user , logoutUser } = useContext(AuthContex);
+    const { user, logoutUser } = useContext(AuthContex);
 
 
     const handelSignout = () => {
         logoutUser()
-        .then(result =>{
-            console.log('Successfully Signout');
-        })
-        .catch(console.error())
+            .then(result => {
+                console.log('Successfully Signout');
+            })
+            .catch(console.error())
     }
 
     const navLinks = <>
@@ -39,15 +39,13 @@ const NavBar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-                    <div className="w-7 rounded-full">
-                        <img src={userImg} />
-                    </div>
-                </label>
                 {
-                    user ? <Link>
-                        <button onClick={handelSignout} className='btn btn-sm'>Sign Out</button>
-                    </Link> : <Link to={'/login'}>
+                    user ? <div className="flex items-center flex-row-reverse gap-2">
+                        <button className='btn btn-sm' onClick={handelSignout}>Signout</button>
+                        <Link to={'/profile'} className="btn btn-ghost btn-circle avatar rounded-full">
+                            <img src={userImg} />
+                        </Link>
+                    </div> : <Link to={'/login'}>
                         <button className='btn btn-sm'>Login</button>
                     </Link>
                 }
