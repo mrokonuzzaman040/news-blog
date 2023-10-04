@@ -22,7 +22,9 @@ const Login = () => {
                 navigate(location?.state ? location.state : '/');
                 toast.success('Login Success');
             })
-            .catch(console.error())
+            .catch(error => {
+                toast.error(error.message);
+            })
     }
 
     return (

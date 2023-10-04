@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import userImg from '../../../assets/images/User.png';
 import { AuthContex } from '../../../Provides/AuthProvider/AuthProvider';
+import { toast } from 'react-toastify';
 
 const NavBar = () => {
 
@@ -11,9 +12,11 @@ const NavBar = () => {
     const handelSignout = () => {
         logoutUser()
             .then(result => {
-                console.log('Successfully Signout');
+                toast.success('Logout Success');
             })
-            .catch(console.error())
+            .catch(error => {
+                toast.error(error.message);
+            })
     }
 
     const navLinks = <>
@@ -42,8 +45,8 @@ const NavBar = () => {
                 {
                     user ? <div className="flex items-center flex-row-reverse gap-2">
                         <button className='btn btn-sm' onClick={handelSignout}>Signout</button>
-                        <Link to={'/profile'} className="btn btn-ghost btn-circle avatar rounded-full">
-                            <img src={userImg} />
+                        <Link to={'/profile'} className="btn btn-ghost btn-circle avatar">
+                            <img className='rounded-full' src={user.photoURL} />
                         </Link>
                     </div> : <Link to={'/login'}>
                         <button className='btn btn-sm'>Login</button>

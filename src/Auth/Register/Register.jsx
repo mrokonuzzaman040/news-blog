@@ -8,7 +8,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const Register = () => {
 
-    const { createUser, upDateProfile, user } = useContext(AuthContex);
+    const { createUser, upDateProfile } = useContext(AuthContex);
     const lcoate = useLocation();
     const navogate = useNavigate()
 
@@ -31,7 +31,7 @@ const Register = () => {
                     .catch(error => {
                         
                     })
-                navogate(lcoate?.state ? lcoate.state : '/');
+                navogate(lcoate?.state ? lcoate.state : '/profile');
             })
             .catch(error => {
                 toast.error(error.message);

@@ -13,14 +13,16 @@ const RightSiteNav = () => {
         <div>
             <div className="p-4 mb-6">
                 <h2 className='text-3xl mb-4'>Login With</h2>
-                <button className="btn btn-outline w-full">
-                    <FcGoogle></FcGoogle>
-                    Login With Google
-                </button>
-                <button className="btn btn-outline w-full">
-                    <AiFillGithub></AiFillGithub>
-                    Login With GitHub
-                </button>
+                <div className="space-y-2">
+                    <button className="btn btn-outline w-full">
+                        <FcGoogle></FcGoogle>
+                        Login With Google
+                    </button>
+                    <button className="btn btn-outline w-full">
+                        <AiFillGithub></AiFillGithub>
+                        Login With GitHub
+                    </button>
+                </div>
             </div>
             <div className="p-4 mb-6">
                 <h2 className='text-3xl'> Find Us On</h2>

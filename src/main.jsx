@@ -14,6 +14,8 @@ import AuthProvider from './Provides/AuthProvider/AuthProvider';
 import NewsDetails from './Pages/NewsDetails/NewsDetails';
 import PrivetRout from './Routes/PrivetRout/PrivetRout';
 import Profile from './Routes/Profile/Profile';
+import AboutPage from './Pages/AboutPage/AboutPage';
+import Career from './Pages/Career/Career';
 
 const router = createBrowserRouter([
   {
@@ -42,6 +44,14 @@ const router = createBrowserRouter([
         path: '/profile',
         element: <PrivetRout><Profile></Profile></PrivetRout>,
       },
+      {
+        path: "/about",
+        element: <AboutPage></AboutPage>,
+      },
+      {
+        path: '/career',
+        element: <Career></Career>
+      }
     ]
   },
 ]);

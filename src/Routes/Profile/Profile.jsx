@@ -12,7 +12,7 @@ const Profile = () => {
                 <Header></Header>
                 <NavBar></NavBar>
             </div>
-            <div className="mx-auto">
+            <div className="mx-auto border p-6 m-10">
                 <div className="flex flex-col items-center justify-center">
                     <div className="avatar">
                         <div className="w-24 rounded">
@@ -22,7 +22,6 @@ const Profile = () => {
                 </div>
                 <h2 className='font-normal'>Name: {displayName}</h2>
                 <h2 className='font-normal'>Email: {email}</h2>
-                
             </div>
 
         </div>
